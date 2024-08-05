@@ -51,7 +51,7 @@ public class StudentRepository {
     }
 
     public static void remove(Student student){
-
+        //내일 이거 해야지
         System.out.println("정상적으로 삭제되었습니다.");
     }
 }
