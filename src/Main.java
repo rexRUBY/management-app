@@ -80,7 +80,7 @@ public class Main {
                 case 2 -> System.out.println("과목별 회차 점수 수정 구현");
                 case 3 -> System.out.println("특정 과목 회차별 등급 조회 구현");
                 case 4 -> System.out.println("전체 수강생 과목별 등급 조회 구현");
-                case 5 -> System.out.println("특정 상태 수강생 필수 과목 평균 등급 조회 구현");
+                case 5 -> SpecificStudentAverage.averageCalculate();         //System.out.println("특정 상태 수강생 필수 과목 평균 등급 조회 구현");
                 case 6 -> flag = false;
                 default -> System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");
             }

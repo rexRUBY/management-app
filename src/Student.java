@@ -32,7 +32,7 @@ public class Student {
     }
 
     public int getId() {
-        return 0;
+        return this.id;
     }
 
     public void setName() {
@@ -40,7 +40,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setSubject() {
@@ -56,7 +56,7 @@ public class Student {
     }
 
     public String getStatus() {
-        return "";
+        return this.status;
     }
 
     public Map<Subject, ArrayList<Integer>> getStudentMap() {

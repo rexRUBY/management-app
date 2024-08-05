@@ -4,7 +4,7 @@ public class Subject {
     private int subjectId;
     private String subjectName;
     private Boolean subjectType;
-//    private 리스트로 넣고
+//    private ArrayList score;
 
     // score 리스트는 따로 score 클래스에서 map 으로 <Subject, scoreList> 로 관리하는게 어떨지
     // subjectId 값++ 로 하려면 int 형으로 바꿔야 됨.
@@ -26,6 +26,10 @@ public class Subject {
     public Boolean getIsEssential() {
         return subjectType;
     }
+
+//    public int getScore() {
+//        return 0;
+//    }
 }
 
 
