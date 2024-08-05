@@ -11,7 +11,6 @@ public class Student {
     }
 
     public void addStudent(){
-
         List<Subject> SubjectStore = SubjectRepository.getSubjectStore();
         Scanner scan = new Scanner(System.in);
         System.out.print("추가할 학생이름 : ");
@@ -19,16 +18,10 @@ public class Student {
         System.out.print("학생이 듣고 있는 과목 목록 : ");
         while(true){
             String subjectName = scan.next();
-
             Subject subject = SubjectRepository.getSubjectName(subjectName);
-            Boolean type = subject.getIsEssential();
-            if(type == true){
-
-            }else if(type == false){
-
-            }
-            studentMap.put(subject, new ArrayList<Integer>());//과목저장
+            studentMap.put(subject, new ArrayList<Integer>());
             break;
+
         }
         System.out.print("학생의 현재 상태 : ");
         String status = scan.next();
@@ -66,6 +59,7 @@ public class Student {
         return this.status;
     }
 
-
-
+    public Map<Subject, ArrayList<Integer>> getStudentMap() {
+        return studentMap;
+    }
 }
