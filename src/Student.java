@@ -65,7 +65,4 @@ public class Student {
     public String getStatus() {
         return this.status;
     }
-
-
-
 }
