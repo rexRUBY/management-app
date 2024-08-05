@@ -27,7 +27,7 @@ public class Student {
 
             }
             studentMap.put(subject, new ArrayList<Integer>());//과목저장
-
+            break;
         }
         System.out.print("학생의 현재 상태 : ");
         String status = scan.next();
