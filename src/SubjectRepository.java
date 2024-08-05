@@ -22,13 +22,4 @@ public class SubjectRepository {
         setSubjectData();
         return subjectStore;
     }
-
-    public static Subject getStubjectName(String name) {
-        for(Subject sub : subjectStore) {
-            if(name.equals(sub.getSubjectName())){
-                return sub;
-            }
-        }
-        return null;
-    }
 }
