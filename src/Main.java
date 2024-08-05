@@ -6,7 +6,6 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         // 첫 화면 메뉴 선택
         displayMainView();
 
@@ -91,5 +90,6 @@ public class Main {
             }
 
         }
+
     }
 }
