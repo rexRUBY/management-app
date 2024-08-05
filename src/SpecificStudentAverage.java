@@ -8,6 +8,5 @@ public class SpecificStudentAverage {
         }
         average = sum / ScoreRegist.yj.size();
         System.out.println("평균 : " +average);
-
     }
 }
