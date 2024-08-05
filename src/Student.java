@@ -18,7 +18,7 @@ public class Student {
         System.out.print("학생이 듣고 있는 과목 목록 : ");
         while(true){
             String subjectName = scan.next();
-            Subject subject = SubjectRepository.getStubjectName(subjectName);
+            Subject subject = SubjectRepository.getSubjectName(subjectName);
             studentMap.put(subject, new ArrayList<Integer>());
 
 
