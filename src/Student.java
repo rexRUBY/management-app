@@ -24,6 +24,8 @@ public class Student {
         }
         System.out.print("학생의 현재 상태 : ");
         String status = scan.next();
+
+
     }
 
     public void setId() {
