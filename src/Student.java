@@ -19,6 +19,7 @@ public class Student {
         System.out.print("학생이 듣고 있는 과목 목록 : ");
         while(true){
             String subjectName = scan.next();
+
             Subject subject = SubjectRepository.getSubjectName(subjectName);
             Boolean type = subject.getIsEssential();
             if(type == true){
@@ -38,7 +39,7 @@ public class Student {
     }
 
     public int getId() {
-        return 0;
+        return this.id;
     }
 
     public void setName() {
@@ -46,7 +47,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setSubject() {
@@ -62,7 +63,7 @@ public class Student {
     }
 
     public String getStatus() {
-        return "";
+        return this.status;
     }
 
 
