@@ -23,7 +23,7 @@ public class Student {
         System.out.print("수강할 과목 : ");
         while (re) {
             String subjectName = scan.next();
-            Subject subject = SubjectRepository.getStubjectName(subjectName);
+            Subject subject = SubjectRepository.getSubjectName(subjectName);
             Boolean type = subject.getIsEssential();//입력한 과목이 필수인지 선택인지 판별
             if (type) {
                 essentialCount++;
@@ -58,7 +58,7 @@ public class Student {
     }
 
     public int getId() {
-        return 0;
+        return this.id;
     }
 
     public void setName() {
@@ -66,7 +66,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setSubject() {
@@ -82,8 +82,11 @@ public class Student {
     }
 
     public String getStatus() {
-        return "";
+        return this.status;
     }
 
+    public Map<Subject, ArrayList<Integer>> getStudentMap() {
+        return studentMap;
+    }
 
 }

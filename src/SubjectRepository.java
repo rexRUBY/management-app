@@ -23,7 +23,7 @@ public class SubjectRepository {
         return subjectStore;
     }
 
-    public static Subject getStubjectName(String name) {
+    public static Subject getSubjectName(String name) {
         for(Subject sub : subjectStore) {
             if(name.equals(sub.getSubjectName())){
                 return sub;

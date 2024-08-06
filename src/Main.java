@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,8 +6,7 @@ public class Main {
 
     private static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException{
         // 첫 화면 메뉴 선택
         displayMainView();
 
@@ -15,7 +15,7 @@ public class Main {
     }
 
     // 첫 화면 메인 뷰
-    private static void displayMainView(){
+    private static void displayMainView() throws IOException{
         boolean flag = true;
         while(flag) { // 1. 수강생 관리    2. 점수 관리   3. exit 입력 시 종료
             System.out.println("\n==================================");
@@ -61,7 +61,7 @@ public class Main {
     }
 
     // 점수 관리 뷰
-    private static void displayScoreView() {
+    private static void displayScoreView() throws IOException {
         boolean flag = true;
         while(flag) {
             System.out.println("\n==================================");
@@ -76,11 +76,11 @@ public class Main {
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> System.out.println("과목별 회차 점수 등록 구현");
+                case 1 -> Score.scoreReister();
                 case 2 -> System.out.println("과목별 회차 점수 수정 구현");
                 case 3 -> System.out.println("특정 과목 회차별 등급 조회 구현");
                 case 4 -> System.out.println("전체 수강생 과목별 등급 조회 구현");
-                case 5 -> System.out.println("특정 상태 수강생 필수 과목 평균 등급 조회 구현");
+                case 5 -> SpecificStudentAverage.averageCalculate();         //System.out.println("특정 상태 수강생 필수 과목 평균 등급 조회 구현");
                 case 6 -> flag = false;
                 default -> System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");
             }
