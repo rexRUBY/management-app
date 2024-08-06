@@ -3,6 +3,7 @@ import java.util.*;
 public class Student {
     private int id = 1;
     private String name;
+
     private Map<Subject,ArrayList<Integer>> studentMap = new HashMap<Subject,ArrayList<Integer>>();
     private String status;
 
@@ -63,5 +64,9 @@ public class Student {
 
     public Map<Subject, ArrayList<Integer>> getStudentMap() {
         return studentMap;
+    }
+
+    public void setStudentMap(Map<Subject, ArrayList<Integer>> studentMap) {
+        this.studentMap = studentMap;
     }
 }
