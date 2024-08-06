@@ -1,10 +1,11 @@
-package view;
 import java.util.List;
 import java.util.Scanner;
 
 public class DisplayMainView {
 
-    private static void displayMainView() {
+    private static Scanner sc = new Scanner(System.in);
+
+    static void displayMainView() {
         boolean flag = true;
         while (flag) { // 1. 수강생 관리    2. 점수 관리   3. exit 입력 시 종료
             System.out.println("\n==================================");
@@ -16,8 +17,8 @@ public class DisplayMainView {
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> displayStudentView();
-                case 2 -> displayScoreView();
+                case 1 -> DisplayStudentView.displayStudentView();
+                case 2 -> DisplayScoreView.displayScoreView();
                 case 3 -> flag = false;
                 default -> {
                     System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");
@@ -26,4 +27,3 @@ public class DisplayMainView {
         }
     }
 }
-
