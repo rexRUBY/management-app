@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DisplayMainView {
+
     private static Scanner sc = new Scanner(System.in);
 
     static void displayMainView() {
