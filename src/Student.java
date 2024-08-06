@@ -11,6 +11,8 @@ public class Student {
         this.name = name;
         this.studentMap = map;
         this.status = status;
+
+        System.out.println("[ "+id +" ] "+name+"학생의 정보가 등록되었습니다.");
     }
 
     public int getId() {
@@ -44,5 +46,4 @@ public class Student {
     public void setStudentMap(Map<Subject, ArrayList<Integer>> studentMap) {
         this.studentMap = studentMap;
     }
-
 }

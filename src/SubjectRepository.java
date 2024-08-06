@@ -11,7 +11,7 @@ public class SubjectRepository {
         subjectStore.add(new Subject(subjectId++,"객체지향", true));
         subjectStore.add(new Subject(subjectId++,"spring", true));
         subjectStore.add(new Subject(subjectId++,"jpa", true));
-        subjectStore.add(new Subject(subjectId++,"masql", true));
+        subjectStore.add(new Subject(subjectId++,"mysql", true));
         subjectStore.add(new Subject(subjectId++,"디자인 패턴", false));
         subjectStore.add(new Subject(subjectId++,"spring sequrity", false));
         subjectStore.add(new Subject(subjectId++,"redis", false));
