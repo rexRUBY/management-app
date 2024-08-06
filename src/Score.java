@@ -19,57 +19,70 @@ public class Score {
         Subject tempSubject = SubjectRepository.getSubjectName("java");
         Subject tempSubject2 = SubjectRepository.getSubjectName("spring");
 
-
         studentList.add(new Student(1));
         studentList.add(new Student(2));
 
-
         targetStudentMap.put(tempSubject, new ArrayList<Integer>()); // 학생 맵
-        targetStudentMap.put(tempSubject, new ArrayList<Integer>());
+        targetStudentMap.put(tempSubject2, new ArrayList<Integer>());
     }
 
-    public static void scoreReister() throws IOException {
+    public static void scoreResister() throws IOException {
 
         studentTestSet(); // 테스트 케이스 생성
 
         Scanner sc = new Scanner(System.in);
         System.out.println("점수를 등록할 학생을 선택하세요."); // 1번 학생 선택
-        int studentNum = sc.nextInt();
-        Student target = findStudent(studentNum);
+//        int studentNum = sc.nextInt();
+//        Student target = findStudent(studentNum);
 
 //        Map<Subject, ArrayList<Integer>> targetStudentMap = target.getStudentMap();
 
-        boolean flag = true;
-        while (flag) {
+        while (true) {
             // 우선 점수리스트의 크기가 0인 것 찾고 -> nullList 에 해당 과목 명 넣기
             ArrayList<String> nullList = findNullList(targetStudentMap.keySet());
 
             System.out.println("점수를 등록할 수 있는 과목은 아래와 같습니다.\n선택 하세요 (exit 종료)");
-            System.out.print("================================");
+
+            // 입력 가능 과목 출력
+            System.out.println("========");
             for (String str : nullList) {
-                System.out.print(str + " ");
+                System.out.println("  " + str);
             }
-            System.out.print("================================");
+            System.out.println("=========");
+
             // 해당 과목명 입력 받기
-            String iunputSubjectName = sc.next();
-            // exit 입력 혹은 입력 할 리스트 없으면 종료
-            if (iunputSubjectName.equals("exit") || nullList.isEmpty()) {
-                flag = false;
+            String inputSubjectName = sc.next();
+
+            // exit 입력시 종료
+            if (inputSubjectName.equals("exit")) {
+                break;
             }
 
             // 과목명 입력 받으면 해당 과목 list 가져와서 add
             // 단, 1 ~ 10개 까지만 입력 가능
-            System.out.println(iunputSubjectName + " 과목에 대한 점수 입력 (10회차 까지)\n ->");
+            System.out.println(inputSubjectName + " 과목에 대한 점수 입력 (10회차 까지) : ");
+
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             StringTokenizer st = new StringTokenizer(br.readLine());
+
+            // 입력받은 과목에 대한 과목 객체 불러오기
+            Subject inputSubject = SubjectRepository.getSubjectName(inputSubjectName);
+            // 과목 객체에 대한 점수 리스트
+            ArrayList<Integer> targetSubjectList = targetStudentMap.get(inputSubject);
+
             while (st.hasMoreTokens()) {
                 if (st.countTokens() <= 10) {
-                    targetStudentMap.get(iunputSubjectName).add(Integer.valueOf(st.nextToken()));
+                    targetSubjectList.add(Integer.valueOf(st.nextToken()));
                 } else {
                     System.out.println("10회차 까지만 입력 가능합니다.");
                     break;
                 }
             }
+            // (test) 저장 되어 있는지 출력
+            for (Integer temp : targetSubjectList) {
+                System.out.print(temp + " ");
+            }
+            System.out.println();
         }
 
 

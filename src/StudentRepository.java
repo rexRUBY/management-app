@@ -4,6 +4,11 @@ public class StudentRepository {
     public static List<Student> students = new ArrayList<>();
     public static Scanner sc = new Scanner(System.in);
 
+    // 학생 리스트 getter
+    public static List<Student> getStudents() {
+        return students;
+    }
+
     public static void inquiry(int type) {
         System.out.println(getInquiryMessage(type));
         String input = sc.nextLine();
