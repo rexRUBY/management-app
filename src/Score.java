@@ -19,9 +19,6 @@ public class Score {
         Subject tempSubject = SubjectRepository.getSubjectName("java");
         Subject tempSubject2 = SubjectRepository.getSubjectName("spring");
 
-        studentList.add(new Student(1));
-        studentList.add(new Student(2));
-
         targetStudentMap.put(tempSubject, new ArrayList<Integer>()); // 학생 맵
         targetStudentMap.put(tempSubject2, new ArrayList<Integer>());
     }
