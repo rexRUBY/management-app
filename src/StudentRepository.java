@@ -29,19 +29,27 @@ public class StudentRepository {
 
     private static String getInquiryMessage(int type) {
         switch (type) {
-            case 1: return "조회할 학생의 고유 번호를 입력하세요: ";
-            case 2: return "조회할 학생의 이름을 입력하세요: ";
-            case 3: return "조회할 학생의 상태를 입력하세요: ";
-            default: return "잘못된 조회 유형입니다.";
+            case 1:
+                return "조회할 학생의 고유 번호를 입력하세요: ";
+            case 2:
+                return "조회할 학생의 이름을 입력하세요: ";
+            case 3:
+                return "조회할 학생의 상태를 입력하세요: ";
+            default:
+                return "잘못된 조회 유형입니다.";
         }
     }
 
     private static boolean isMatchingStudent(Student s, int type, String input) {
         switch (type) {
-            case 1: return s.getId() == Integer.parseInt(input);
-            case 2: return s.getName().equals(input);
-            case 3: return s.getStatus().equals(input);
-            default: return false;
+            case 1:
+                return s.getId() == Integer.parseInt(input);
+            case 2:
+                return s.getName().equals(input);
+            case 3:
+                return s.getStatus().equals(input);
+            default:
+                return false;
         }
     }
 
