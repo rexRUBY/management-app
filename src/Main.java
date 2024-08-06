@@ -7,11 +7,12 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException{
-        // 첫 화면 메뉴 선택
-        displayMainView();
 
         // Subject 저장소 생성
         List<Subject> subjectStore = SubjectRepository.getSubjectStore();
+
+        // 첫 화면 메뉴 선택
+        displayMainView();
     }
 
     // 첫 화면 메인 뷰
@@ -76,7 +77,7 @@ public class Main {
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> Score.scoreReister();
+                case 1 -> Score.scoreResister();
                 case 2 -> System.out.println("과목별 회차 점수 수정 구현");
                 case 3 -> System.out.println("특정 과목 회차별 등급 조회 구현");
                 case 4 -> System.out.println("전체 수강생 과목별 등급 조회 구현");
