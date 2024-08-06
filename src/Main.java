@@ -1,6 +1,5 @@
 import java.io.IOException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -13,6 +12,18 @@ public class Main {
 
         // 첫 화면 메뉴 선택
         displayMainView();
+
+        // 학생 객체 생성 부분 예시
+        StudentManagement.addStudent();
+
+        String name = StudentManagement.getName();
+        int id = StudentManagement.getId();
+        Map<Subject, ArrayList<Integer>> studentMap = StudentManagement.getStudentMap();
+        String status = StudentManagement.getStatus();
+
+        // 생성자로 수강생 객체 생성
+        Student 문정석 = new Student(id, name, studentMap, status);
+
     }
 
     // 첫 화면 메인 뷰
