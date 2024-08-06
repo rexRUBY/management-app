@@ -8,13 +8,15 @@ public class Main {
     public static void main(String[] args) throws IOException{
         DisplayMainView.displayIntroView();
 
-        while(true) {
+        boolean flag = true;
+        while(flag) {
             System.out.println("1.수강생 관리\n2.점수 관리\n3.종료\n메뉴를 선택해주세요 : ");
             String option = new Scanner(System.in).nextLine();
             switch(option) {
                 case "1" -> DisplayMainView.displayMainView();
                 case "2" -> DisplayScoreView.displayScoreView();
-                default -> System.out.println("올바를 값을 입력해주세요");
+                case "3" -> flag = false;
+                default -> System.out.println("올바른 값을 입력해주세요");
             }
         }
     }

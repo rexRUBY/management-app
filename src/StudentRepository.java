@@ -94,7 +94,7 @@ public class StudentRepository {
         }
     }
 
-    private static void printStudentInfo(Student s) {
+    public static void printStudentInfo(Student s) {
         System.out.println("고유 번호: " + s.getId() + " 이름: " + s.getName() + " 상태: " + s.getStatus());
     }
 
@@ -134,4 +134,14 @@ public class StudentRepository {
         }
         System.out.println("해당 ID를 가진 학생을 찾을 수 없습니다.");
     }
+
+    public static Student findStudentById(int id) {
+        for (Student temp : students) {
+            if (temp.getId() == id) {
+                return temp;
+            }
+        }
+        return null;
+    }
+
 }
