@@ -10,9 +10,6 @@ public class SpecificStudentAverage {
         System.out.println("평균 : " +average);
 
 
-
-        ///
-        ///
     }
 
     //추가
