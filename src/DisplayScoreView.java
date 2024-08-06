@@ -16,7 +16,7 @@ public class DisplayScoreView {
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> System.out.println("점수 등록");
+                case 1 -> ScoreRegist.scoreRegist(); // 점수 등록
                 case 2 -> System.out.println("점수 수정");
                 case 3 -> System.out.println("점수 조회");
                 case 4 -> flag = false;

@@ -1,13 +1,12 @@
 import java.util.*;
 
 public class StudentManagement {
-    private static int id = 0;
+    private static int id = 1;
     private static String name;
     private static Map<Subject, ArrayList<Integer>> studentMap = new HashMap<Subject, ArrayList<Integer>>();
     private static String status;
 
     public static void addStudent() {
-        id++; // 고유 번호 증가
         int essentialCount = 0; // 필수과목 카운트
         int selectCount = 0; // 선택과목 카운트
         boolean re = true;
@@ -18,7 +17,7 @@ public class StudentManagement {
         String name = scan.next();
 
         System.out.print("수강할 과목 : ");
-
+        // Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status)
         while (re) {
             String subjectName = scan.next(); // 수강할 과목을 입력
             Subject subject = null;
@@ -26,7 +25,7 @@ public class StudentManagement {
             try {
                 subject = SubjectRepository.getSubjectName(subjectName); // 입력한 과목과 저장된 과목이 같은지 판별
                 if (subject == null) {
-                    throw new IllegalArgumentException("존재하지 않는 과목입니다. 올바른 과목명을 입력해주세요.");
+                    throw new IllegalArgumentException("존재하지 않는 과목입니다. 올바른 과목명을 입력해주세요. : ");
                 }
 
                 Boolean type = subject.getIsEssential(); // 입력한 과목이 필수인지 선택인지 판별
@@ -40,7 +39,7 @@ public class StudentManagement {
                 if (!studentMap.containsKey(subject)) {
                     studentMap.put(subject, new ArrayList<Integer>()); // 과목저장
                 } else {
-                    System.out.print("이미 입력된 강의입니다. 다른 과목을 입력해주세요. : ");
+                    System.out.println("이미 입력된 강의입니다. 다른 과목을 입력해주세요. : ");
                 }
 
                 if (essentialCount < 3) {
@@ -60,8 +59,9 @@ public class StudentManagement {
         } // 무한반복 종료
         System.out.print("학생의 현재 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
         String status = scan.next();
-    }
 
+        StudentRepository.students.add(new Student(id++, name, studentMap, status));  //수강생 객체 생성 및 수강생 리스트에 추가
+    }
 
     public static int getId() {
         return id;
