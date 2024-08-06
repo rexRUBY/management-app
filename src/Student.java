@@ -52,6 +52,14 @@ public class Student {
             }
         }//무한반복 종료
         System.out.print("학생의 현재 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
+        System.out.print("학생이 듣고 있는 과목 목록 : ");
+        while(true){
+            String subjectName = scan.next();
+            Subject subject = SubjectRepository.getSubjectName(subjectName);
+            studentMap.put(subject, new ArrayList<Integer>());
+            break;
+        }
+        System.out.print("학생의 현재 상태 : ");
         String status = scan.next();
     }
 
