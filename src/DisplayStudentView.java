@@ -15,8 +15,8 @@ public class DisplayStudentView {
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> System.out.println("수강생 정보등록");
-                case 2 -> System.out.println("수강생 목록조회");
+                case 1 -> StudentManagement.addStudent(); //수강생 정보 등록
+                case 2 -> StudentRepository.inquiry(); //수강생 조회
                 case 3 -> flag = false;
                 default -> {
                     System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");

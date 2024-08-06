@@ -9,8 +9,15 @@ public class StudentRepository {
         return students;
     }
 
-    public static void inquiry(int type) {
-        System.out.println(getInquiryMessage(type));
+    public static void inquiry() {
+        // 고유번호, 이름, 상태별 어떤 것을 선택할지 입력 받음.
+        System.out.println("====== 수강생 조회 ======");
+        System.out.println("1. 고유번호로 검색\n2. 이름으로 검색\n3. 상태로 검색");
+        System.out.println("관리 항목을 선택하세요 :");
+        int type = sc.nextInt();
+        sc.nextLine(); // 버퍼 소비
+
+        System.out.print(getInquiryMessage(type));
         String input = sc.nextLine();
         boolean found = false;
 
