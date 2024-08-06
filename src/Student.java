@@ -89,4 +89,8 @@ public class Student {
         return studentMap;
     }
 
+    public void setStudentMap(Map<Subject, ArrayList<Integer>> studentMap) {
+        this.studentMap = studentMap;
+    }
+
 }
