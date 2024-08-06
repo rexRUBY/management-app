@@ -15,6 +15,7 @@ public class Student {
         int selectCount = 0;// 선택과목 카운드
         boolean re = true;
         List<Subject> SubjectStore = SubjectRepository.getSubjectStore();
+
         Scanner scan = new Scanner(System.in);
         System.out.print("학생이름 : ");
         String name = scan.next();
@@ -63,8 +64,8 @@ public class Student {
         return this.id;
     }
 
-    public void setName() {
-
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -79,8 +80,8 @@ public class Student {
         return List.of();
     }
 
-    public void setStatus() {
-
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getStatus() {

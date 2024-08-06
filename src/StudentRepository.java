@@ -65,4 +65,21 @@ public class StudentRepository {
             System.out.println("해당 고유 번호를 가진 학생을 찾을 수 없습니다.");
         }
     }
+
+    public static void modifyStudentInfo() {
+        System.out.println("수정할 학생의 ID를 입력해주세요.");
+        String id = sc.next();
+        for (Student s : students) {
+            if (isMatchingStudent(s, 1, id)) {
+                System.out.println("학생의 이름을 입력해주세요.");
+                String name = sc.next();
+                s.setName(name);
+                System.out.println("학생의 현재 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
+                String status = sc.next();
+                s.setStatus(status);
+                break; // 고유 번호는 유일하므로 찾으면 종료
+            }
+        }
+    }
+
 }
