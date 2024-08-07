@@ -18,7 +18,7 @@ public class DisplayScoreView {
             switch (menuInput) {
                 case 1 -> Score.scoreResister(); // 점수 등록
                 case 2 -> ScoreChange.scoreChange();
-                case 3 -> System.out.println("점수 조회");
+                case 3 -> SpecificStudentAverage.averageCalculate();
                 case 4 -> flag = false;
                 default -> {
                     System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");
