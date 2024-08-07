@@ -12,6 +12,8 @@ public class StudentManagement {
         boolean re = true;
         List<Subject> SubjectStore = SubjectRepository.getSubjectStore();
 
+        System.out.println("\n====== 수강생 정보 등록 ======");
+
         Scanner scan = new Scanner(System.in);
         System.out.print("수강생 이름 : ");
         String name = scan.nextLine();
@@ -47,12 +49,17 @@ public class StudentManagement {
                 } else if (selectCount < 2) {
                     System.out.print("선택과목은 2개 이상 필강입니다. 선택과목을 더 입력해주세요. : ");
                 } else if (essentialCount >= 3 && selectCount >= 2) { // 필수과목이 3개, 선택과목이 2개 이상일 때만 exit문구 출력
-                    System.out.println("과목 등록을 마치시겠습니까? (exit 입력 시 종료)");
+                    System.out.println("과목 등록을 마치시겠습니까?");
+                    System.out.println("exit : 종료 / 00 : 이전으로 돌아가기");
                     String exit = scan.next();
                     if (exit.equals("exit")) { // exit을 입력 받으면 반복 종료
                         re = false;
+                    } else if (exit.equals("00")) {
+                        System.out.println("이전으로 돌아가기");
+                        return;
                     }
                 }
+
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -61,7 +68,9 @@ public class StudentManagement {
         String status = scan.next();
 
         StudentRepository.students.add(new Student(id++, name, studentMap, status));  //수강생 객체 생성 및 수강생 리스트에 추가
+
     }
+
 
     public static int getId() {
         return id;
