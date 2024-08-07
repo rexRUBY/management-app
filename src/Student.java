@@ -3,7 +3,7 @@ import java.util.*;
 public class Student {
     private int id;
     private String name;
-    private static Map<Subject, ArrayList<Integer>> studentMap = new HashMap<Subject, ArrayList<Integer>>();
+    private Map<Subject, ArrayList<Integer>> studentMap = new HashMap<Subject, ArrayList<Integer>>();
     private String status;
 
     public Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status) {
