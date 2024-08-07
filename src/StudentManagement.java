@@ -3,10 +3,10 @@ import java.util.*;
 public class StudentManagement {
     private static int id = 1;
     private static String name;
-    private static Map<Subject, ArrayList<Integer>> studentMap = new HashMap<Subject, ArrayList<Integer>>();
     private static String status;
 
     public static void addStudent() {
+        Map<Subject, ArrayList<Integer>> studentMap = new HashMap<>();
         int essentialCount = 0; // 필수과목 카운트
         int selectCount = 0; // 선택과목 카운트
         boolean re = true;
@@ -17,7 +17,6 @@ public class StudentManagement {
         String name = scan.nextLine();
 
         System.out.print("수강 과목 : ");
-        // Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status)
         while (re) {
             String subjectName = scan.next(); // 수강할 과목을 입력
             Subject subject = null;
@@ -69,10 +68,6 @@ public class StudentManagement {
 
     public static String getName() {
         return name;
-    }
-
-    public static Map<Subject, ArrayList<Integer>> getStudentMap() {
-        return studentMap;
     }
 
     public static String getStatus() {
