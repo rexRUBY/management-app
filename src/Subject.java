@@ -1,41 +1,26 @@
 import java.util.ArrayList;
 
 public class Subject {
-    private String subjectId;
+    private int subjectId;
     private String subjectName;
     private Boolean subjectType;
-    private ArrayList score;
 
-    public String getSubjectId() {
-        return "";
+    public Subject(int subjectId, String subjectName, Boolean subjectType) {
+        this.subjectId = subjectId;
+        this.subjectName = subjectName;
+        this.subjectType = subjectType;
+    }
+
+    public int getSubjectId() {
+        return subjectId;
     }
 
     public String getSubjectName() {
-        return "";
+        return subjectName;
     }
 
-    public Boolean isEssential() {
-        return null;
-    }
-
-    public String setSubjectId() {
-        return "";
-    }
-
-    public void setSubjectName() {
-
-    }
-
-    public void setSubjectType() {
-
-    }
-
-    public void setScore() {
-
-    }
-
-    public int getScore() {
-        return 0;
+    public Boolean getIsEssential() {
+        return subjectType;
     }
 }
 
