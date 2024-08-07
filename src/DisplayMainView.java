@@ -17,6 +17,7 @@ public class DisplayMainView {
                 "                                                                          \\/_/ \n");
     }
 
+
     static void displayMainView() {
         boolean flag = true;
         while (flag) { // 1. 수강생 관리    2. 점수 관리   3. exit 입력 시 종료
