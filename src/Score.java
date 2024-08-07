@@ -11,7 +11,7 @@ public class Score {
         2. Map에서 list 가 null 값인 경우 입력 받기
      */
     private static List<Student> students = StudentRepository.getStudents();
-    private static Student student;
+//    private static Student student;
 
     public static void scoreResister() {
 
@@ -27,7 +27,9 @@ public class Score {
         int inputId = sc.nextInt();
 
         // 고유 번호에 대한 학생 객체 찾기
-        student = StudentRepository.findStudentById(inputId);
+        Student student = StudentRepository.findStudentById(inputId);
+        System.out.println(student.getName());
+
         if (student == null) {
             System.out.println("해당 학생이 없습니다.");
             return; // 학생을 찾을 수 없으면 메서드 정료
