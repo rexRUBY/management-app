@@ -13,10 +13,10 @@ public class StudentManagement {
         List<Subject> SubjectStore = SubjectRepository.getSubjectStore();
 
         Scanner scan = new Scanner(System.in);
-        System.out.print("학생이름 : ");
+        System.out.print("수강생 이름 : ");
         String name = scan.nextLine();
 
-        System.out.print("수강할 과목 : ");
+        System.out.print("수강 과목 : ");
         // Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status)
         while (re) {
             String subjectName = scan.next(); // 수강할 과목을 입력
@@ -57,7 +57,7 @@ public class StudentManagement {
                 System.out.println(e.getMessage());
             }
         } // 무한반복 종료
-        System.out.print("학생의 현재 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
+        System.out.print("수강생 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
         String status = scan.next();
 
         StudentRepository.students.add(new Student(id++, name, studentMap, status));  //수강생 객체 생성 및 수강생 리스트에 추가
