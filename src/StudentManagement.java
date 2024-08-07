@@ -18,7 +18,7 @@ public class StudentManagement {
 
         System.out.print("수강 과목 : ");
         while (re) {
-            String subjectName = scan.next(); // 수강할 과목을 입력
+            String subjectName = scan.nextLine(); // 수강할 과목을 입력
             Subject subject = null;
 
             try {
