@@ -68,9 +68,8 @@ public class GradeManagement {
 
             try {
                 studentNum = Integer.parseInt(input);
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("유효하지 않은 숫자입니다. ");
-                sc.nextLine();
                 continue;
             }
 
@@ -91,19 +90,19 @@ public class GradeManagement {
                     checkNameList.add(temp);
                 }
                 System.out.println("===============================");
-                String targetSubject = sc.nextLine().trim();
+                sc.nextLine(); // 버퍼 비우기
+                String targetSubject = sc.nextLine();
 
                 // 잘못입력 예외 처리
                 if (!checkNameList.contains(targetSubject)) {
                     System.out.println("없는 과목을 입력하였습니다.");
-                    break;
+                    continue; // 잘못된 입력 시 다시 과목 선택 단계로 돌아갑니다.
                 }
-
 
                 calculateRoundGrade(targetStudent, targetSubject);
                 System.out.println("다른 과목을 조회하시겠습니까? (yes or exit)");
                 String inputExit = sc.next();
-                if (inputExit.equals("exit")) {
+                if (inputExit.equalsIgnoreCase("exit")) {
                     break;
                 }
             }
