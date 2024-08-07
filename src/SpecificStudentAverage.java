@@ -51,7 +51,10 @@ public class SpecificStudentAverage {
                 }
             }
             average = (double) sum / roundCount;
-            System.out.println(average);
+            String grade = GradeManagement.essentialGrade((int)average);
+            System.out.println("%s\n=============");
+            System.out.printf("'%s'의 필수과목 평균 등급 : %s", stu.getName(), grade);
+            System.out.println("\n=============");
         }
     }
 

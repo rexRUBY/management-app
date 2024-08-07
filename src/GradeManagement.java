@@ -161,7 +161,7 @@ public class GradeManagement {
 
 
     // 필수 과목 등급 산출 메서드!
-    public String essentialGrade(int score) {
+    public static String essentialGrade(int score) {
         if (score >= 95) {
             return "A";
         } else if (score >= 90) {
@@ -178,7 +178,7 @@ public class GradeManagement {
     }
 
     // 선택 과목 등급 산출 메서드!
-    public String optianalGrade(int score) {
+    public static String optianalGrade(int score) {
         if (score >= 90) {
             return "A";
         } else if (score >= 80) {
