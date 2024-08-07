@@ -23,7 +23,7 @@ public class Score {
         }
 
         // 학생 고유번호 입력 받음
-        System.out.println("점수를 등록할 학생을 선택하세요.");
+        System.out.println("점수를 등록할 학생의 고유번호를 선택하세요. : ");
         int inputId = sc.nextInt();
 
         // 고유 번호에 대한 학생 객체 찾기
@@ -72,7 +72,6 @@ public class Score {
 
             // 과목명 입력 받으면 해당 과목 list 가져와서 add
             // 단, 1 ~ 10개 까지만 입력 가능
-
 
             boolean flag = true;
             while (flag) {
