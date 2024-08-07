@@ -9,8 +9,9 @@ public class StudentRepository {
     }
 
     public static void selectOption() {
-        System.out.println("====== 수강생 조회 ======");
-        System.out.println("1. 수강생 이름 검색\n2. 수강생 삭제 및 조회");
+        System.out.println("====== 수강생 목록 조회 ======");
+        System.out.println("1. 수강생 이름 검색\n2. 수강생 삭제 및 조회\n00 : 이전으로 돌아가기");
+        System.out.print("관리 항목을 선택하세요 : ");
         String option = sc.nextLine();
 
         switch(option) {
@@ -19,6 +20,9 @@ public class StudentRepository {
                 break;
             case "2":
                 deleteOrModifyStudent();
+                break;
+            case "3":
+                DisplayStudentView.displayStudentView();
                 break;
             default:
                 System.out.println("잘못된 옵션입니다.");
