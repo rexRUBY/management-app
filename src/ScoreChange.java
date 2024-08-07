@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public class  ScoreChange {
+public class ScoreChange {
     private static List<Student> students = StudentRepository.getStudents();
 
     public static void scoreChange() {
