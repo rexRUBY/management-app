@@ -11,7 +11,9 @@ public class SpecificStudentAverage {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("조회할 학생들의 상태를 선택해주세요\n1. Green(Good)\n2. Yellow(Not bad)\n3. Red(Terrible)");
+            System.out.print("관리 항목을 선택하세요 : ");
             int choice = sc.nextInt();
+
             switch (choice) {
                 case 1 -> {
                     status = "Green";
@@ -32,13 +34,6 @@ public class SpecificStudentAverage {
             }
         } // 상태 필터링
 
-        /*
-        특정 상태 학생들 리스트 : SpecificStudentAverage.statusStudent
-        특정 상태 학생들 총인원 : SpecificStudentAverage.statusStudent.size()
-        과목 전체 리스트 : SubjectRepository.getSubjectStore()
-        필수 과목 리스트 : SubjectStore.Subject.getIsEssential() == true
-        */
-
         for (Student stu : statusStudent) {
             Set<Subject> set = stu.getStudentMap().keySet(); // 과목 / 리스트
             int sum = 0;
@@ -52,8 +47,8 @@ public class SpecificStudentAverage {
             }
             average = (double) sum / roundCount;
             String grade = GradeManagement.essentialGrade((int)average);
-            System.out.printf("'%s'의 필수과목 평균 등급 : %s", stu.getName(), grade);
-            System.out.println("\n============================");
+            System.out.printf("\n===============================\n'%s'의 필수과목 평균 등급 : %s", stu.getName(), grade);
+            System.out.println("\n===============================");
         }
     }
 
@@ -82,6 +77,7 @@ public class SpecificStudentAverage {
     }
 
     public static void pickStatusUp(String status) {
+        statusStudent.clear();
         for (Student stu : StudentRepository.students) { // 학생들 리스트에서
             if (stu.getStatus().equalsIgnoreCase(status)) { // 학생의 상태를 갖고온게 파라미터 status와 같다면,
                 statusStudent.add(stu); // 그 학생을 리스트에 넣는다
