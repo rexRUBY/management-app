@@ -58,7 +58,7 @@ public class Score {
             System.out.println("===========");
 
             // 해당 과목명 입력 받기
-            String inputSubjectName = sc.next();
+            String inputSubjectName = sc.nextLine();
 
             // exit 입력시 종료
             if (inputSubjectName.equals("exit")) {
