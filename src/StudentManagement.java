@@ -86,7 +86,7 @@ public class StudentManagement {
             if (status.equalsIgnoreCase("Green") || status.equalsIgnoreCase("Red") || status.equalsIgnoreCase("Yellow")) {
                 break;
             } else {
-                System.out.print("잘못된 입력입니다. 수강생 상태(Green / Red / Yellow 중 하나를 입력): ");
+                System.out.print("잘못된 입력입니다. 수강생 상태(Green / Yellow / Reddfg 중 하나를 입력): ");
             }
         }
 

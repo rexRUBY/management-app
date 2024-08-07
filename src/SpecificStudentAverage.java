@@ -52,9 +52,8 @@ public class SpecificStudentAverage {
             }
             average = (double) sum / roundCount;
             String grade = GradeManagement.essentialGrade((int)average);
-            System.out.println("%s\n=============");
             System.out.printf("'%s'의 필수과목 평균 등급 : %s", stu.getName(), grade);
-            System.out.println("\n=============");
+            System.out.println("\n============================");
         }
     }
 
@@ -63,16 +62,18 @@ public class SpecificStudentAverage {
         boolean flag = true;
         while (flag) {
             System.out.println("\n====== 점수 조회 ======");
-            System.out.println("1. 특정 학생 과목별 등급 조회 ");
-            System.out.println("2. 특정 학생 회차별 등급 조회 ");
-            System.out.println("3. 이전으로 돌아가기");
+            System.out.println("1. 이전으로 돌아가기");
+            System.out.println("2. 특정 학생 과목별 등급 조회 ");
+            System.out.println("3. 특정 학생 회차별 등급 조회 ");
+            System.out.println("4. 특정 상태 필수 과목 등급 조회 ");
             System.out.print("관리 항목을 선택하세요 : ");
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
-                case 1 -> new GradeManagement().subjectGradeView();
-                case 2 -> new GradeManagement().studentRoundGradeView();
-                case 3 -> flag = false;
+                case 1 -> flag = false;
+                case 2 -> new GradeManagement().subjectGradeView();
+                case 3 -> new GradeManagement().studentRoundGradeView();
+                case 4 -> averageCalculate();
                 default -> {
                     System.out.println("잘못된 입력입니다! \n처음으로 돌아갑니다.");
                 }
