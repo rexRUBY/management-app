@@ -31,34 +31,42 @@ public class StudentManagement {
 
                 Boolean type = subject.getIsEssential(); // 입력한 과목이 필수인지 선택인지 판별
                 if (!studentMap.containsKey(subject)) {
-                    studentMap.put(subject, new ArrayList<Integer>()); // 과목저장
-                    if (type) {
+                    if (type && essentialCount < 5) {
+                        studentMap.put(subject, new ArrayList<Integer>());
                         essentialCount++;
-                        System.out.println("현재 등록된 필수과목은" + essentialCount + "개입니다.");
-                    } else if (!type) {
+                        System.out.print("필수과목을 추가했습니다. 현재 필수과목 개수: " + essentialCount);
+                    } else if (!type && selectCount < 4) {
+                        studentMap.put(subject, new ArrayList<Integer>());
                         selectCount++;
-                        System.out.println("현재 등록된 선택과목은" + selectCount + "개입니다.");
+                        System.out.print("선택과목을 추가했습니다. 현재 선택과목 개수: " + selectCount);
+                    } else {
+                        System.out.println("해당 과목 유형의 최대 선택 가능 개수를 초과했습니다.");
                     }
                 } else {
                     System.out.println("이미 입력된 강의입니다. 다른 과목을 입력해주세요.");
                 }
 
-                if(type && essentialCount < 3){
-                    System.out.print("현재 입력된 과목은 필수과목입니다. 필수과목은 최소 3개 ~ 최대 5개까지 입력가능합니다.");
+                // 필수과목 조건 확인
+                if (type && essentialCount < 3) {
+                    System.out.println();
+                    System.out.print("필수과목은 최소 3개에서 최대 5개까지 입력가능합니다. 현재 등록된 필수과목은 " + essentialCount + "개입니다. 계속 입력 : ");
                 }
 
-                if(!type && selectCount < 2){
-                    System.out.print("현재 입력된 과목은 선택과목입니다. 선택과목은 최소 2개에서 최대 4개까지 입력가능합니다.");
+                // 선택과목 조건 확인
+                if (!type && selectCount < 2) {
+                    System.out.println();
+                    System.out.print("선택과목은 최소 2개에서 최대 4개까지 입력가능합니다. 현재 등록된 선택과목은 " + selectCount + "개입니다. 계속 입력 : ");
                 }
 
-                if(essentialCount >= 3 && selectCount >= 2) {
+                // 등록 완료 조건 확인
+                if (essentialCount >= 3 && selectCount >= 2) {
                     if (essentialCount == 5 && selectCount == 4) {
-                        System.out.print("필수 & 선택 과목의 최대 개수를 모두 선택하셨습니다. 과목 선택을 종료합니다.");
+                        System.out.println("필수 과목과 선택 과목의 최대 개수를 모두 선택했습니다. 과목 등록을 종료합니다.");
                         re = false;
                     } else {
-                        System.out.print("과목 선택이 모두 충족되었습니다. 추가로 수강하고자 하면 입력해주세요. (exit 입력 시 종료) : ");
+                        System.out.print("과목 선택은 충족 되었습니다. 수강을 원하시면 입력하세요 (exit 입력 시 종료) : ");
                         String exit = scan.next();
-                        if (exit.equals("exit")) { // exit을 입력 받으면 반복 종료
+                        if (exit.equals("exit")) {
                             re = false;
                         }
                     }
@@ -67,8 +75,10 @@ public class StudentManagement {
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
-        } // 무한반복 종료
-        System.out.print("수강생 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
+        }
+
+        // 무한반복 종료
+        System.out.print("수강생 상태 : Green / Red / Yellow 중 하나를 입력해주세요 : ");
         String status = scan.next();
 
         StudentRepository.students.add(new Student(id++, name, studentMap, status));  //수강생 객체 생성 및 수강생 리스트에 추가
