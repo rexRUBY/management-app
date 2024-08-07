@@ -51,7 +51,7 @@ public class Score {
             System.out.println("점수를 등록할 수 있는 과목은 아래와 같습니다. 선택 하세요 (exit 종료)");
 
             // 입력 가능 과목 출력
-            System.out.println("==========");
+            System.out.println("===========");
             for (String str : nullList) {
                 System.out.println("  " + str);
             }
