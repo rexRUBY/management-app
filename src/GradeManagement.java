@@ -117,13 +117,18 @@ public class GradeManagement {
             ArrayList<Integer> targetList = targetMap.get(subject);
 
             int roundNum = targetList.size();
+
+            if (roundNum == 0) {
+                continue;
+            }
+
             int sum = 0;
 
             for (Integer score : targetList) {
                 sum += score;
             }
 
-            int result = sum / roundNum;
+            int result = sum / roundNum;  // roundNum이 0이 아님이 보장됨
             String grade = "";
 
             if (subject.getIsEssential()) {
