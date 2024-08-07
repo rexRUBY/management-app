@@ -8,7 +8,7 @@ public class GradeManagement {
 
     public void subjectGradeView() {
         boolean flag = true;
-        while(flag) {
+        while (flag) {
             System.out.println("======= 특정 학생 과목별 등급 조회 ======= ");
 
             // 수강생 리스트 출력
@@ -34,6 +34,7 @@ public class GradeManagement {
                 continue;
             }
 
+            System.out.println();
             calculateSubjectGrade(targetStudent);
 
             System.out.println("뒤로가기 (exit)");
@@ -47,18 +48,26 @@ public class GradeManagement {
 
     public void studentRoundGradeView() {
         boolean flag = true;
-        while(flag) {
+        while (flag) {
+            System.out.println();
             System.out.println("======= 특정 학생 회차별 등급 조회 ======= ");
 
             // 수강생 리스트 출력
             for (Student student : studentList) {
                 StudentRepository.printStudentInfo(student);
             }
-            System.out.print("등급 조회를 원하는 학생의 고유 번호를 입력하세요 : ");
+            System.out.print("등급 조회를 원하는 학생의 고유 번호를 입력하세요 (exit 종료) : ");
+            String input = sc.next();
+
+            if (input.equalsIgnoreCase("exit")) {
+                flag = false;
+                break;
+            }
+
             int studentNum = -1;
 
             try {
-                studentNum = sc.nextInt();
+                studentNum = Integer.parseInt(input);
             } catch (InputMismatchException e) {
                 System.out.println("유효하지 않은 숫자입니다. ");
                 sc.nextLine();
@@ -72,39 +81,32 @@ public class GradeManagement {
                 System.out.println("존재하지 않은 수강생이거나 입력이 잘못되었습니다.");
                 continue;
             }
-
-            // 과목 선택
-            List<String> checkNameList = new ArrayList<>(); // 존재하는 과목 체크 위한 리스트
-            System.out.println("======== 과목을 선택하세요 ========");
-            for (Subject subject : targetStudent.getStudentMap().keySet()) {
-                String temp = subject.getSubjectName();
-                System.out.println(temp);
-                checkNameList.add(temp);
-            }
-            System.out.println("===============================");
-            String targetSubject = sc.next();
-
-            // 잘못입력 예외 처리
-            if (!checkNameList.contains(targetSubject)) {
-                System.out.println("없는 과목을 입력하였습니다.");
-                break;
-            }
-
             while (true) {
+                // 과목 선택
+                List<String> checkNameList = new ArrayList<>(); // 존재하는 과목 체크 위한 리스트
+                System.out.println("======== 과목을 선택하세요 ========");
+                for (Subject subject : targetStudent.getStudentMap().keySet()) {
+                    String temp = subject.getSubjectName();
+                    System.out.println(temp);
+                    checkNameList.add(temp);
+                }
+                System.out.println("===============================");
+                String targetSubject = sc.nextLine().trim();
+
+                // 잘못입력 예외 처리
+                if (!checkNameList.contains(targetSubject)) {
+                    System.out.println("없는 과목을 입력하였습니다.");
+                    break;
+                }
+
+
                 calculateRoundGrade(targetStudent, targetSubject);
-                System.out.println("다른 회차를 조회하시겠습니까? (yes or exit)");
-                String input = sc.next();
-                if (input.equals("exit")) {
+                System.out.println("다른 과목을 조회하시겠습니까? (yes or exit)");
+                String inputExit = sc.next();
+                if (inputExit.equals("exit")) {
                     break;
                 }
             }
-
-//            System.out.println("뒤로가기 (exit)");
-//            String isExit = sc.next();
-//
-//            if (isExit.equals("exit")) {
-//                flag = false;
-//            }
         }
     }
 
@@ -157,7 +159,6 @@ public class GradeManagement {
             }
         }
     }
-
 
 
     // 필수 과목 등급 산출 메서드!
