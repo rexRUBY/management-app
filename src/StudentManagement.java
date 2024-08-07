@@ -30,32 +30,37 @@ public class StudentManagement {
                 }
 
                 Boolean type = subject.getIsEssential(); // 입력한 과목이 필수인지 선택인지 판별
-
-                if (type) {
-                    essentialCount++;
-                } else if (!type) {
-                    selectCount++;
-                }
-
                 if (!studentMap.containsKey(subject)) {
                     studentMap.put(subject, new ArrayList<Integer>()); // 과목저장
+                    if (type) {
+                        essentialCount++;
+                    } else if (!type) {
+                        selectCount++;
+                    }
                 } else {
-                    System.out.println("이미 입력된 강의입니다. 다른 과목을 입력해주세요. : ");
+                    System.out.println("이미 입력된 강의입니다. 다른 과목을 입력해주세요.");
                 }
 
-                if (essentialCount < 3) {
-                    System.out.print("필수과목은 3개 이상 필강입니다. 필수과목을 더 입력해주세요. : ");
-                } else if (selectCount < 2) {
-                    System.out.print("선택과목은 2개 이상 필강입니다. 선택과목을 더 입력해주세요. : ");
-                } else if (essentialCount >= 3 && selectCount >= 2) { // 필수과목이 3개, 선택과목이 2개 이상일 때만 exit문구 출력
-                    System.out.println("과목 등록을 마치시겠습니까?");
-                    System.out.println("exit : 종료 / 00 : 이전으로 돌아가기");
+                if (type) {
+                    if(essentialCount < 3){
+                        System.out.print("현재 입력된 과목은 필수과목입니다. 필수과목은 최소 3개에서 최대 5개까지 입력가능합니다. 현재 등록된 필수과목은" + essentialCount + "개입니다.");
+                    }else if(essentialCount >= 3 && essentialCount <= 5){
+                        System.out.print("최소 필수과목 개수를 만족하셨습니다. 현재 등록된 필수과목은" + essentialCount + "개입니다.");
+                    }
+                }else if (!type) {
+                    if(selectCount < 2){
+                        System.out.print("현재 입력된 과목은 선택과목입니다. 선택과목은 최소 2개에서 최대 4개까지 입력가능합니다. 현재 등록된 선택과목은" + selectCount + "개입니다.");
+                    }else if(selectCount > 2 && selectCount <= 4){
+                        System.out.print("최소 선택과목 개수를 만족하셨습니다. 현재 등록된 선택과목은" + essentialCount + "개입니다.");
+                    }
+                }
+
+                //always true가 뜨는 이유는 위에 if문에서 essentialCount < 3와 selectCount < 2로 이미 걸러줬기 때문 이대로도 사용가능하고 else지우고 if문 따로 뺴놨습니다.
+                if (essentialCount >= 3 && selectCount >= 2) { // 필수과목이 3개, 선택과목이 2개 이상일 때만 exit문구 출력
+                    System.out.println("과목 등록을 마치시겠습니까? (exit 입력 시 종료)");
                     String exit = scan.next();
                     if (exit.equals("exit")) { // exit을 입력 받으면 반복 종료
                         re = false;
-                    } else if (exit.equals("00")) {
-                        System.out.println("이전으로 돌아가기");
-                        return;
                     }
                 }
 
