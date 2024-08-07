@@ -6,7 +6,7 @@ import java.util.Set;
 public class  ScoreChange {
     private static List<Student> students = StudentRepository.getStudents();
 
-    public static void scoreChange() {
+    public static void sdgsagscoreChange() {
         Scanner sc = new Scanner(System.in);
 
         // 일단 수강생 리스트 출력
