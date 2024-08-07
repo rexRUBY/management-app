@@ -14,7 +14,7 @@ public class StudentManagement {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("학생이름 : ");
-        String name = scan.next();
+        String name = scan.nextLine();
 
         System.out.print("수강할 과목 : ");
         // Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status)

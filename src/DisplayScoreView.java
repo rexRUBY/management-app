@@ -12,7 +12,7 @@ public class DisplayScoreView {
             System.out.println("2. 점수 수정");
             System.out.println("3. 점수 조회");
             System.out.println("4. 이전으로 돌아가기");
-            System.out.println("관리 항목을 선택하세요 : ");
+            System.out.print("관리 항목을 선택하세요 : ");
             int menuInput = sc.nextInt();
 
             switch (menuInput) {
