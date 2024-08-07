@@ -3,21 +3,20 @@ import java.util.*;
 public class StudentManagement {
     private static int id = 1;
     private static String name;
-    private static Map<Subject, ArrayList<Integer>> studentMap = new HashMap<Subject, ArrayList<Integer>>();
     private static String status;
 
     public static void addStudent() {
+        Map<Subject, ArrayList<Integer>> studentMap = new HashMap<>();
         int essentialCount = 0; // 필수과목 카운트
         int selectCount = 0; // 선택과목 카운트
         boolean re = true;
         List<Subject> SubjectStore = SubjectRepository.getSubjectStore();
 
         Scanner scan = new Scanner(System.in);
-        System.out.print("학생이름 : ");
+        System.out.print("수강생 이름 : ");
         String name = scan.nextLine();
 
-        System.out.print("수강할 과목 : ");
-        // Student(int id, String name, Map<Subject, ArrayList<Integer>> map, String status)
+        System.out.print("수강 과목 : ");
         while (re) {
             String subjectName = scan.next(); // 수강할 과목을 입력
             Subject subject = null;
@@ -57,7 +56,7 @@ public class StudentManagement {
                 System.out.println(e.getMessage());
             }
         } // 무한반복 종료
-        System.out.print("학생의 현재 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
+        System.out.print("수강생 상태 : Green / Red / Yellow 중 하나를 입력해주세요.");
         String status = scan.next();
 
         StudentRepository.students.add(new Student(id++, name, studentMap, status));  //수강생 객체 생성 및 수강생 리스트에 추가
@@ -69,10 +68,6 @@ public class StudentManagement {
 
     public static String getName() {
         return name;
-    }
-
-    public static Map<Subject, ArrayList<Integer>> getStudentMap() {
-        return studentMap;
     }
 
     public static String getStatus() {

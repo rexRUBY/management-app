@@ -10,7 +10,7 @@ public class StudentRepository {
 
     public static void selectOption() {
         System.out.println("====== 수강생 조회 ======");
-        System.out.println("1. 학생 검색\n2. 학생 삭제 및 조회");
+        System.out.println("1. 수강생 이름 검색\n2. 수강생 삭제 및 조회");
         String option = sc.nextLine();
 
         switch(option) {
